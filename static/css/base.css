@@ -1,0 +1,57 @@
+nav, .page-footer, .pagination li.active {
+  background-color: #167e9b;
+}
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+ul.side-nav.fixed li.logo {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 80px;
+}
+
+.logo-container {
+  height: 57px;
+  margin-bottom: 32px;
+}
+
+.side-nav li > a.brand-logo:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.card .card-image img {
+  opacity: 0.50;
+}
+
+.card .card-title {
+  color: #167e9b;
+}
+
+.card-panel .row {
+  margin-bottom: 0;
+}
+
+.card {
+  height:120px;
+  margin-top : 0px;
+}
+
+#digital-twin{
+  margin-bottom: 0px;
+}
+
+#dt-row{
+  margin-bottom: 0px;
+}
+
+#container{
+  margin-left: 10px;
+}

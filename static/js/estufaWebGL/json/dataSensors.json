@@ -1,0 +1,532 @@
+[
+  {
+    "name": "DHT22 #01 + TSL2591 #01",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -20,
+      "z": -40
+    }
+  },
+  {
+    "name": "DHT22 #02 + TSL2591 #02",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -70,
+      "z": -15
+    }
+  },
+  {
+    "name": "MG811 #01",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": 20,
+      "z": -10
+    }
+  },
+  {
+    "name": "DHT22 #03 + TSL2591 #03",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -20,
+      "z": 5
+    }
+  },
+  {
+    "name": "DHT22 #04 + TSL2591 #04",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": 20,
+      "z": 25
+    }
+  },
+  {
+    "name": "DHT22 #05 + TSL2591 #05",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -20,
+      "z": 40
+    }
+  },
+  {
+    "name": "DHT22 #06 + TSL2591 #06",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -70,
+      "z": 60
+    }
+  },
+  {
+    "name": "MG811 #02",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -20,
+      "z": 75
+    }
+  },
+  {
+    "name": "DHT22 #07 + TSL2591 #07",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": 20,
+      "z": 87
+    }
+  },
+  {
+    "name": "DHT22 #08 + TSL2591 #08",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -20,
+      "z": 100
+    }
+  },
+  {
+    "name": "DHT22 #09 + TSL2591 #09",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -70,
+      "z": 120
+    }
+  },
+  {
+    "name": "DHT22 #10 + TSL2591 #10",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -20,
+      "z": 150
+    }
+  },
+  {
+    "name": "MG811 #03",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -70,
+      "z": 155
+    }
+  },
+  {
+    "name": "DHT22 #11 + TSL2591 #11",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": 20,
+      "z": 170
+    }
+  },
+  {
+    "name": "DHT22 #12 + TSL2591 #12",
+    "side": "right",
+    "display": "hidden",
+    "position": {
+      "x": -85,
+      "y": -70,
+      "z": 185
+    }
+  },
+  {
+    "name": "DHT22 #13 + TSL2591 #13",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": 20,
+      "z": -45
+    }
+  },
+  {
+    "name": "DHT22 #14 + TSL2591 #14",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -70,
+      "z": -30
+    }
+  },
+  {
+    "name": "DHT22 #15 + TSL2591 #15",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -20,
+      "z": -10
+    }
+  },
+  {
+    "name": "MG811 #04",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -70,
+      "z": -10
+    }
+  },
+  {
+    "name": "DHT22 #16 + TSL2591 #16",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": 20,
+      "z": 5
+    }
+  },
+  {
+    "name": "DHT22 #17 + TSL2591 #17",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -70,
+      "z": 15
+    }
+  },
+  {
+    "name": "DHT22 #18 + TSL2591 #18",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -20,
+      "z": 40
+    }
+  },
+  {
+    "name": "DHT22 #19 + TSL2591 #19",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": 20,
+      "z": 45
+    }
+  },
+  {
+    "name": "DHT22 #20 + TSL2591 #20",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -70,
+      "z": 60
+    }
+  },
+  {
+    "name": "MG811 #05",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": 20,
+      "z": 75
+    }
+  },
+  {
+    "name": "DHT22 #21 + TSL2591 #21",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -20,
+      "z": 80
+    }
+  },
+  {
+    "name": "DHT22 #22 + TSL2591 #22",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": 20,
+      "z": 95
+    }
+  },
+  {
+    "name": "DHT22 #23 + TSL2591 #23",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -70,
+      "z": 100
+    }
+  },
+  {
+    "name": "DHT22 #24 + TSL2591 #24",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -20,
+      "z": 120
+    }
+  },
+  {
+    "name": "DHT22 #25 + TSL2591 #25",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": 20,
+      "z": 135
+    }
+  },
+  {
+    "name": "DHT22 #26 + TSL2591 #26",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -70,
+      "z": 150
+    }
+  },
+  {
+    "name": "MG811 #06",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -20,
+      "z": 165
+    }
+  },
+  {
+    "name": "DHT22 #27 + TSL2591 #27",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": 20,
+      "z": 180
+    }
+  },
+  {
+    "name": "DHT22 #28 + TSL2591 #28",
+    "side": "middle",
+    "display": "hidden",
+    "position": {
+      "x": 0,
+      "y": -70,
+      "z": 190
+    }
+  },
+  {
+    "name": "DHT22 #29 + TSL2591 #29",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -70,
+      "z": -85
+    }
+  },
+  {
+    "name": "DHT22 #30 + TSL2591 #30",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -20,
+      "z": -70
+    }
+  },
+  {
+    "name": "MG811 #07",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -45,
+      "z": -70
+    }
+  },
+  {
+    "name": "DHT22 #31 + TSL2591 #31",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": 20,
+      "z": -50
+    }
+  },
+  {
+    "name": "DHT22 #32 + TSL2591 #32",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -20,
+      "z": -25
+    }
+  },
+  {
+    "name": "DHT22 #33 + TSL2591 #33",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -70,
+      "z": -15
+    }
+  },
+  {
+    "name": "MG811 #08",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -70,
+      "z": 0
+    }
+  },
+  {
+    "name": "DHT22 #34 + TSL2591 #34",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -20,
+      "z": 30
+    }
+  },
+  {
+    "name": "DHT22 #35 + TSL2591 #35",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": 20,
+      "z": 50
+    }
+  },
+  {
+    "name": "DHT22 #36 + TSL2591 #36",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -20,
+      "z": 70
+    }
+  },
+  {
+    "name": "DHT22 #37 + TSL2591 #37",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -70,
+      "z": 90
+    }
+  },
+  {
+    "name": "MG811 #09",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": 20,
+      "z": 90
+    }
+  },
+  {
+    "name": "DHT22 #38 + TSL2591 #38",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -20,
+      "z": 110
+    }
+  },
+  {
+    "name": "DHT22 #39 + TSL2591 #39",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": 20,
+      "z": 125
+    }
+  },
+  {
+    "name": "DHT22 #40 + TSL2591 #40",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -20,
+      "z": 150
+    }
+  },
+  {
+    "name": "MG811 #10",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -20,
+      "z": 170
+    }
+  },
+  {
+    "name": "DHT22 #41 + TSL2591 #41",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": -70,
+      "z": 170
+    }
+  },
+  {
+    "name": "DHT22 #42 + TSL2591 #42",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": 20,
+      "z": 175
+    }
+  },
+  {
+    "name": "IR Emitter Module",
+    "side": "left",
+    "display": "hidden",
+    "position": {
+      "x": 85,
+      "y": 20,
+      "z": 190
+    }
+  }
+]
