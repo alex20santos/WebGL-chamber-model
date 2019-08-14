@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,246 +28,261 @@
 
 </head>
 <body>
-  <header>
-    <nav class="nav-extended">
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="#" data-activates="nav-mobile" class="button-collapse">
-            <i class="material-icons">menu</i>
+<header>
+  <nav class="nav-extended">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" data-activates="nav-mobile" class="button-collapse">
+          <i class="material-icons">menu</i>
+        </a>
+        <div class="col s12">
+          <a href="#" class="breadcrumb">
+            Production Chamber
           </a>
-          <div class="col s12">
-            <a href="#" class="breadcrumb">
-              Production Chamber
-            </a>
-            <a href="#" class="breadcrumb">
-              Dashboard
-            </a>
-          </div>
+          <a href="#" class="breadcrumb">
+            Dashboard
+          </a>
         </div>
-        <div class="nav-content">
+      </div>
+      <div class="nav-content">
           <span class="nav-title">
             Dashboard
           </span>
-        </div>
-      </div>
-    </nav>
-    <ul id="nav-mobile" class="side-nav fixed show-on-large">
-      <li class="logo">
-        <a id="logo-container" href="#" class="brand-logo">
-          <img class="responsive-img" src="static/img/logo.png">
-        </a>
-      </li>
-      <li class="active">
-        <a href="#">
-          Dashboard
-          <i class="material-icons left">dashboard</i>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Link #01
-          <i class="material-icons left">dashboard</i>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Link #02
-          <i class="material-icons left">dashboard</i>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Link #03
-          <i class="material-icons left">dashboard</i>
-        </a>
-      </li>
-    </ul>
-  </header>
-  <main>
-    <div class="container">
-      <div class="section">
-
-        <h4>Digital Twin</h4>
-
-        <div class="row">
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>Temperature</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text">20ºC</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart1" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>Humidity</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text">80%RH</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart2" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>Luminosity</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text">1080lux</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart3" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>CO2 Concentration</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text">800ppm</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart4" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>Air-Conditioning</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text green-text">on</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart5" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>Air-Extraction</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text green-text">on</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart6" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>Lighting</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text green-text">on</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart7" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-          <div class="col m3">
-            <div class="card-panel">
-              <h6>Misting</h6>
-              <div class="row">
-                <div class="col m6">
-                  <p class="flow-text red-text">off</p>
-                </div>
-                <div class="col m6"><canvas id="cardChart8" width="400" height="400"></canvas></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" id="dt-row">
-          <div id="container"></div>
-        </div>
-
-
-        <div class="row">
-          <div class="col s12 m12">
-            <div class="card blue-grey darken-3">
-
-              <div class = "col s12 m7">
-                  <div class="card-content white-text">
-                    <span class="card-title" id="dt-info-left"> </span>
-                    <p>Temperature: 10 ºC </p>
-                    <p>Humidity: 56 % </p>
-                  </div>
-              </div>
-              <div class=" =col s12 m5">
-                  <div class="card-content white-text">
-                    <span class="card-title" id="dt-info-right" ></span>
-                    <p>Luminosity: 100 lux </p>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="row">
-          <div class="col m3">
-            <ul class="collection with-header">
-              <li class="collection-header"><h5>Real-Time Conditions</h5></li>
-              <li class="collection-item"><div>Temperature (ºC)<span class="secondary-content">20</span></div></li>
-              <li class="collection-item"><div>Relative Humidity (%RH)<span class="secondary-content">80</span></div></li>
-              <li class="collection-item"><div>CO2 Concentration (ppm)<span class="secondary-content">800</span></div></li>
-              <li class="collection-item"><div>Luminosity (lux)<span class="secondary-content">1080</span></div></li>
-              <li class="collection-item"><div>Air-Conditioning<span class="secondary-content">ON</span></div></li>
-              <li class="collection-item"><div>Air-Extraction<span class="secondary-content">ON</span></div></li>
-              <li class="collection-item"><div>Lighting<span class="secondary-content">ON</span></div></li>
-              <li class="collection-item"><div>Misting<span class="secondary-content">OFF</span></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="section">
-        <h4>Digital Twin</h4>
-        <div class="row">
-          <canvas id="myChart" width="400" height="200"></canvas>
-        </div>
       </div>
     </div>
-  </main>
-  <footer class="page-footer">
-    <div class="container">
+  </nav>
+  <ul id="nav-mobile" class="side-nav fixed show-on-large">
+    <li class="logo">
+      <a id="logo-container" href="#" class="brand-logo">
+        <img class="responsive-img" src="static/img/logo.png">
+      </a>
+    </li>
+    <li class="active">
+      <a href="#">
+        Dashboard
+        <i class="material-icons left">dashboard</i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        Link #01
+        <i class="material-icons left">dashboard</i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        Link #02
+        <i class="material-icons left">dashboard</i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        Link #03
+        <i class="material-icons left">dashboard</i>
+      </a>
+    </li>
+  </ul>
+</header>
+<main>
+  <div class="container">
+    <div class="section">
+
+      <h4>Digital Twin</h4>
+
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>Temperature</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text">20ºC</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart1" width="400" height="400"></canvas></div>
+            </div>
+          </div>
         </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>Humidity</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text">80%RH</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart2" width="400" height="400"></canvas></div>
+            </div>
+          </div>
+        </div>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>Luminosity</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text">1080lux</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart3" width="400" height="400"></canvas></div>
+            </div>
+          </div>
+        </div>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>CO2 Concentration</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text">800ppm</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart4" width="400" height="400"></canvas></div>
+            </div>
+          </div>
+        </div>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>Air-Conditioning</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text green-text">on</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart5" width="400" height="400"></canvas></div>
+            </div>
+          </div>
+        </div>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>Air-Extraction</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text green-text">on</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart6" width="400" height="400"></canvas></div>
+            </div>
+          </div>
+        </div>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>Lighting</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text green-text">on</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart7" width="400" height="400"></canvas></div>
+            </div>
+          </div>
+        </div>
+        <div class="col m3">
+          <div class="card-panel">
+            <h6>Misting</h6>
+            <div class="row">
+              <div class="col m6">
+                <p class="flow-text red-text">off</p>
+              </div>
+              <div class="col m6"><canvas id="cardChart8" width="400" height="400"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col m12">
+          <!-- modelo WebGL aqui -->
+          <div class="container-fluid" id="container-col" style="margin-bottom: 10px">
+          </div>
+        </div>
+      </div>
+
+
+      <style scoped="">
+        .container-fluid {
+          text-align: center;
+        }
+
+
+      </style>
+
+
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-3">
+
+            <div class = "col s12 m7">
+              <div class="card-content white-text">
+                <span class="card-title" id="dt-info-left"> </span>
+                <p>Temperature: 10 ºC </p>
+                <p>Humidity: 56 % </p>
+              </div>
+            </div>
+            <div class=" =col s12 m5">
+              <div class="card-content white-text">
+                <span class="card-title" id="dt-info-right" ></span>
+                <p>Luminosity: 100 lux </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col m3">
+          <ul class="collection with-header">
+            <li class="collection-header"><h5>Real-Time Conditions</h5></li>
+            <li class="collection-item"><div>Temperature (ºC)<span class="secondary-content">20</span></div></li>
+            <li class="collection-item"><div>Relative Humidity (%RH)<span class="secondary-content">80</span></div></li>
+            <li class="collection-item"><div>CO2 Concentration (ppm)<span class="secondary-content">800</span></div></li>
+            <li class="collection-item"><div>Luminosity (lux)<span class="secondary-content">1080</span></div></li>
+            <li class="collection-item"><div>Air-Conditioning<span class="secondary-content">ON</span></div></li>
+            <li class="collection-item"><div>Air-Extraction<span class="secondary-content">ON</span></div></li>
+            <li class="collection-item"><div>Lighting<span class="secondary-content">ON</span></div></li>
+            <li class="collection-item"><div>Misting<span class="secondary-content">OFF</span></div></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-        2018 &copy; All rights reserved to
-        <a class="grey-text text-lighten-4" href="#">
-          Association BLC3 - Technology and Innovation Campus
-        </a>
+    <div class="divider"></div>
+    <div class="section">
+      <h4>Digital Twin</h4>
+      <div class="row">
+        <canvas id="myChart" width="400" height="200"></canvas>
       </div>
     </div>
-  </footer>
+  </div>
+</main>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      2018 &copy; All rights reserved to
+      <a class="grey-text text-lighten-4" href="#">
+        Association BLC3 - Technology and Innovation Campus
+      </a>
+    </div>
+  </div>
+</footer>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-  <script type="text/javascript" src="./static/js/base.js"></script>
-  <script src="static/js/estufaWebGL/estufaDraw.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script type="text/javascript" src="./static/js/base.js"></script>
+<script src="static/js/estufaWebGL/estufaDraw.js"></script>
 
 </body>
 </html>

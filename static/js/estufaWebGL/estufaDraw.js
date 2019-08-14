@@ -15,7 +15,6 @@ var op_cube = 0.9;
 var op_wall = 0.9;
 var panelF, panelSmallSide, panelSmall, panelOrigin, panel, panelR, silver;
 var tick = 0, clock = new THREE.Clock();
-var factor = 1.83;
 var selectedShelf; // left, middle, right
 var sensors = [];
 var sensorObjects = [];
@@ -26,15 +25,18 @@ loadTextures();
 init();
 animate();
 
+setInterval(function(){
+    $.getJSON("static/js/estufaWebGL/json/dataSensors.json", function(json) {
+        console.log(json);
+    });
+},20000 );
 
 function init() {
-
-
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             sensorsFromJson = JSON.parse(this.responseText);
-            console.log(sensorsFromJson);
+            //console.log(sensorsFromJson);
             drawSensors();
         }
     };
@@ -42,10 +44,13 @@ function init() {
     xmlhttp.send();
 
 
-    container = document.getElementById('container');
+    container = document.getElementById('container-col');
+    if(container.clientHeight < 100){
+        container.style.height= 416+'px';
+    }
 
 
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+    camera = new THREE.PerspectiveCamera(45,container.clientWidth/container.clientHeight , 1, 1000);
     camera.position.y = 180;
     camera.position.z = 500;
 
@@ -69,7 +74,7 @@ function init() {
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.localClippingEnabled = true;
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth / factor, window.innerHeight / factor);
+    renderer.setSize( container.clientWidth, container.clientHeight);
     renderer.localClippingEnabled = false;
     renderer.domElement.id = "digital-twin";
     container.appendChild(renderer.domElement);
@@ -403,13 +408,12 @@ function addShadowedLight(x, y, z, color, intensity) {
 
 function onWindowResize() {
 
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
+    container = document.getElementById('container-col');
 
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = container.clientWidth/container.clientHeight;
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth / factor, window.innerHeight / factor);
+    renderer.setSize(container.clientWidth,container.clientHeight);
 
 
 }
@@ -496,8 +500,8 @@ function onDocumentMouseDown(event) {
             sensorObjects[id][0].material.color.set(0x00b200);
             var sensorName = sensors[id].name;
             var res = sensorName.split(" + ");
-            console.log(res);
-            $('#dt-info-left').html(res[0]);
+            //console.log(res);
+            $('#dt-info-left').html(res[0]); // Show sensor name on card
             if (res.length > 1)
                 $('#dt-info-right').html(res[1]);
             else {
@@ -546,7 +550,7 @@ function onDocumentMouseDown(event) {
     }
     for (let id = 0; id < 3; id++) {
         var intersects = raycaster.intersectObjects(shelves[id]);
-        console.log("-", intersects, "-");
+        //console.log("-", intersects, "-");
         if (intersects.length > 0) {
             for (let j = 0; j < shelves[id].length; j++) {
                 shelves[id][j].material.opacity = 1;  //show selected shelves
