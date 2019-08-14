@@ -45,9 +45,13 @@ function init() {
 
 
     container = document.getElementById('container-col');
-    if(container.clientHeight < 100){
+    if(container.clientHeight == 0){
         container.style.height= 416+'px';
     }
+    if(container.clientWidth == 0){
+        container.style.width= 416+'px';
+    }
+
 
 
     camera = new THREE.PerspectiveCamera(45,container.clientWidth/container.clientHeight , 1, 1000);
