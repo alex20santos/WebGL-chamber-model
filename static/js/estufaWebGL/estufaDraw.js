@@ -20,16 +20,114 @@ var sensors = [];
 var sensorObjects = [];
 let sides = ["right", "middle", "left"];
 var sensorsFromJson;
+var data_from_db;
+var misting = false;
+var spotLight;
 
 loadTextures();
 init();
 animate();
 
 setInterval(function(){
-    $.getJSON("static/js/estufaWebGL/json/dataSensors.json", function(json) {
-        console.log(json);
+    $.getJSON("static/js/estufaWebGL/json/data.json", function(json) { // change this path
+         data_from_db = json;
     });
-},20000 );
+}, 5000 ); //change the interval
+
+
+setInterval(function(){
+    try {
+        // change state of AC
+        if (data_from_db["climatisation"] === true) {
+            for (let i = 0; i < acObj.length; i++) {
+                acObj[i].material.color.set(0x00ff00)
+            }
+        }
+        else if (data_from_db["climatisation"] === false) {
+            for (let i = 0; i < acObj.length; i++) {
+                acObj[i].material.color.set(0xff0000)
+            }
+        }
+
+        // change state of Extractor
+        if (data_from_db["air_circulation"] === true) {
+            for (let i = 0; i < extractorObj.length; i++) {
+                extractorObj[i].material.color.set(0x00ff00)
+            }
+        }
+        else if (data_from_db["air_circulation"] === false) {
+            for (let i = 0; i < extractorObj.length; i++) {
+                extractorObj[i].material.color.set(0xff0000)
+            }
+        }
+
+        // change state of Misting
+        if (data_from_db["misting"] === true) {
+            for (let i = 0; i < extractorObj.length; i++) {
+                misting = true;
+            }
+        }
+        else {
+            misting = false;
+        }
+
+
+        spotLight.visible = data_from_db["lighting"] === true;
+
+        var state;
+
+        if(data_from_db["misting"] === false){
+            state = "Off";
+        }
+        else{
+            state = "On";
+        }
+        $('#dt-info-misting').html('Misting: '+ state);
+
+        if(data_from_db["air_circulation"] === false){
+            state = "Off";
+        }
+        else {
+            state = "On";
+        }
+        $('#dt-info-air-circulation').html('Air circulation: '+state);
+
+        if(data_from_db["air_circulation"] === false){
+            state = "Off";
+        }
+        else {
+            state = "On";
+        }
+        $('#dt-info-access-control').html('Access control: '+state);
+
+        if(data_from_db["lighting"] === false){
+            state = "Off";
+        }
+        else {
+            state = "On";
+        }
+        $('#dt-info-lighting').html('Lighting: '+state);
+
+        if(data_from_db["climatisation"] === false){
+            state = "Off";
+        }
+        else {
+            state = "On";
+        }
+        $('#dt-info-climatisation').html('Climatisation: ' + state);
+    }
+    catch (e) {
+        $('#dt-info-misting').html('Misting: N/A');
+        $('#dt-info-air-circulation').html('Air circulation: N/A');
+        $('#dt-info-access-control').html('Access control: N/A');
+        $('#dt-info-lighting').html('Lighting: N/A');
+        $('#dt-info-climatisation').html('Climatisation: N/A');
+
+        console.log("Couldn't find values from database")
+    }
+
+
+}, 2000 ); // change the interval
 
 function init() {
     var xmlhttp = new XMLHttpRequest();
@@ -62,9 +160,28 @@ function init() {
     scene.background = new THREE.Color(0xf0f0f0);
 
     scene.add(new THREE.HemisphereLight(0x443333, 0x111122));
+    //
     addShadowedLight(0, 200, 300, 0xffffff, 0.9);
     addShadowedLight(100, 200, 300, 0xffffff, 0.9);
     addShadowedLight(-100, 200, 300, 0xffffff, 0.9);
+
+    spotLight = new THREE.SpotLight( 0xFFFF00 );
+    spotLight.position.set( 2, 250, 0 );
+
+    spotLight.castShadow = true;
+
+    spotLight.shadow.mapSize.width = 1024;
+    spotLight.shadow.mapSize.height = 1024;
+
+    spotLight.penumbra = 0;
+    spotLight.intensity = 2;
+    spotLight.angle = 1;
+    spotLight.visible = true;
+
+
+    scene.add(spotLight);
+
+
 
     drawCube();
     drawWalls();
@@ -98,7 +215,7 @@ function drawSensors() {
     let i = 0;
     for (let s in sensorsFromJson) {
         let geometry = new THREE.SphereGeometry(5, 32, 32);
-        let material = new THREE.MeshBasicMaterial({color: 0xffff00, side: THREE.DoubleSide});
+        let material = new THREE.MeshPhongMaterial({color: 0xffff00, side: THREE.DoubleSide});
         let sphere = new THREE.Mesh(geometry, material);
         sphere.position.set(sensorsFromJson[i].position.x, sensorsFromJson[i].position.y, sensorsFromJson[i].position.z);
         var aux2 = Object.assign({}, sensorsFromJson[i]);
@@ -117,7 +234,6 @@ function drawSensors() {
         i++;
     }
 }
-
 
 function initParticles() {
     particleSystem = new THREE.GPUParticleSystem();
@@ -144,18 +260,13 @@ function initParticles() {
         verticalSpeed: 0,
         timeScale: 0.13
     };
-    particleSystem2 = new THREE.GPUParticleSystem();
-    particleSystem2.position.set(0, 100, 200);
-    particleSystem2.scale.set(50, 50, 50);
-    particleSystem2.rotation.set(0, 0, 0);
-    /*cube.add( particleSystem2 );*/
 
 }
 
 function drawWalls() {
     //parede meio
     var geometry_obj = new THREE.PlaneGeometry(120, 200, 0);
-    ;
+
     var material_obj = new THREE.MeshBasicMaterial({
         color: 0xffffff,
         transparent: true,
@@ -215,7 +326,7 @@ function drawWalls() {
 
     //parede lado com porta
     geometry_obj = new THREE.PlaneGeometry(120, 200, 0);
-    ;
+
     material_obj = new THREE.MeshBasicMaterial({
         color: 0xffffff,
         transparent: true,
@@ -228,7 +339,7 @@ function drawWalls() {
     cube.add(object);
 
     geometry_obj = new THREE.PlaneGeometry(20, 200, 0);
-    ;
+
     material_obj = new THREE.MeshBasicMaterial({
         color: 0xffffff,
         transparent: true,
@@ -241,7 +352,7 @@ function drawWalls() {
     cube.add(object);
 
     geometry_obj = new THREE.PlaneGeometry(60, 40, 0);
-    ;
+
     material_obj = new THREE.MeshBasicMaterial({
         color: 0xffffff,
         transparent: true,
@@ -254,7 +365,7 @@ function drawWalls() {
     cube.add(object);
 
     geometry_obj = new THREE.PlaneGeometry(2, 160, 100);
-    ;
+
     material_obj = new THREE.MeshBasicMaterial({color: 'grey', side: THREE.FrontSide});
     object = new THREE.Mesh(geometry_obj, material_obj);
     object.position.set(21, -20, -200);
@@ -265,7 +376,7 @@ function drawWalls() {
     object.position.set(79, -20, -200);
     cube.add(object);
     geometry_obj = new THREE.PlaneGeometry(60, 2, 100);
-    ;
+
     material_obj = new THREE.MeshBasicMaterial({color: 'grey', side: THREE.FrontSide});
     object = new THREE.Mesh(geometry_obj, material_obj);
     object.position.set(50, 59, -200);
@@ -463,15 +574,19 @@ function hideRestShelves(selected) {
     for (let i = 0; i < shelves.length; i++) {
         for (let j = 0; j < shelves[i].length; j++) {
             if (i !== selected) {
-                shelves[i][j].material.opacity = 0.1;  //hide non selected shelves
+                shelves[i][j].material.opacity = 0.1;  //hide non selected
             }
         }
     }
 }
 
 function clearDtInfo() {
-    $('#dt-info-right').html('');
-    $('#dt-info-left').html('');
+    $('#dt-info-dht-mg11').html('');
+    $('#dt-info-tsl').html('');
+    $('#dt-info-temp').html('');
+    $('#dt-info-hum').html('');
+    $('#dt-info-co2').html('');
+    $('#dt-info-lum').html('');
 }
 
 function onDocumentMouseDown(event) {
@@ -501,50 +616,68 @@ function onDocumentMouseDown(event) {
         intersects = raycaster.intersectObjects(sensorObjects[id]);
         if (intersects.length > 0) {
             //select sphere
+            //sensorObjects[id][0] to access Mesh objects
             sensorObjects[id][0].material.color.set(0x00b200);
             var sensorName = sensors[id].name;
             var res = sensorName.split(" + ");
-            //console.log(res);
-            $('#dt-info-left').html(res[0]); // Show sensor name on card
-            if (res.length > 1)
-                $('#dt-info-right').html(res[1]);
-            else {
-                $('#dt-info-right').html('');
+            var split_res = sensorName.split(" ").slice(-1)[0];
+
+            var sensor_number = split_res.substring(1,split_res.length);
+
+
+
+            $('#dt-info-dht-mg11').html(res[0]); // Show sensor name on card -> DHT or MG811
+            console.log(res);
+            try {
+                if (res[0].includes('DHT')) {
+                    $('#dt-info-temp').html("Temperature: " + data_from_db["pos" + sensor_number + "_temp"] + " ºC");
+                    $('#dt-info-hum').html("Humidity: " + data_from_db["pos" + sensor_number + "_humd"] + " %");
+                    $('#dt-info-co2').html("");
+                }
+                else {
+                    $('#dt-info-co2').html("CO2: " + data_from_db["pos" + sensor_number + "_co2c"] + " ppm");
+                    $('#dt-info-temp').html("");
+                    $('#dt-info-hum').html("");
+                }
+
+                if (res.length > 1) {
+                    $('#dt-info-tsl').html(res[1]); // -> TSL
+                    $('#dt-info-lum').html("Luminosity: " + data_from_db["pos" + sensor_number + "_lumy"] + " lux");
+                }
+                else {
+                    $('#dt-info-tsl').html('');
+                    $('#dt-info-lum').html('');
+                }
+
+
+            }
+            catch (e) {
+                if (res[0].includes('DHT')) {
+                    $('#dt-info-temp').html("Temperature: N/A");
+                    $('#dt-info-hum').html("Humidity: N/A");
+                    $('#dt-info-co2').html("");
+                }
+                else {
+                    $('#dt-info-co2').html("CO2: N/A");
+                    $('#dt-info-temp').html("");
+                    $('#dt-info-hum').html("");
+                }
+
+                if (res.length > 1) {
+                    $('#dt-info-tsl').html(res[1]); // -> TSL
+                    $('#dt-info-lum').html("Luminosity: N/A");
+                }
+                else {
+                    $('#dt-info-tsl').html('');
+                    $('#dt-info-lum').html('');
+                }
             }
             return;
         }
     }
 
     hiddenAllSpheres();
-
-    intersects = raycaster.intersectObjects(acObj);
-    if (intersects.length > 0) {
-        if (acObj[0].material.color.r === 1) {
-            for (let i = 0; i < acObj.length; i++) {
-                acObj[i].material.color.set(0x00ff00)
-            }
-        }
-        else if (acObj[0].material.color.g === 1) {
-            for (let i = 0; i < acObj.length; i++) {
-                acObj[i].material.color.set(0xff0000)
-            }
-        }
-    }
-
-    intersects = raycaster.intersectObjects(extractorObj);
-    if (intersects.length > 0) {
-        if (extractorObj[0].material.color.r === 1) {
-            for (let i = 0; i < extractorObj.length; i++) {
-                extractorObj[i].material.color.set(0x00ff00)
-            }
-        }
-        else if (extractorObj[0].material.color.g === 1) {
-            for (let i = 0; i < extractorObj.length; i++) {
-                extractorObj[i].material.color.set(0xff0000)
-            }
-        }
-    }
-
+    clearDtInfo();
 
     //shelves intersection
     intersects = raycaster.intersectObjects(cubeObj);
@@ -564,7 +697,7 @@ function onDocumentMouseDown(event) {
         }
     }
     showSpheres();
-    clearDtInfo();
+
 }
 
 function onDocumentMouseMove(event) {
@@ -617,6 +750,7 @@ function animate() {
 
     requestAnimationFrame(animate);
 
+
     stats.begin();
     let delta = clock.getDelta() * spawnerOptions.timeScale;
     tick += delta;
@@ -625,24 +759,24 @@ function animate() {
         options.position.x = Math.sin(tick * spawnerOptions.horizontalSpeed) * 20;
         options.position.y = Math.sin(tick * spawnerOptions.verticalSpeed) * 10;
         options.position.z = Math.sin(tick * spawnerOptions.horizontalSpeed + spawnerOptions.verticalSpeed) * 5;
-        for (let x = 0; x < spawnerOptions.spawnRate * delta; x++) {
+        if(misting === true)
+            for (let x = 0; x < spawnerOptions.spawnRate * delta; x++) {
             // Yep, that's really it.	Spawning particles is super cheap, and once you spawn them, the rest of
             // their lifecycle is handled entirely on the GPU, driven by a time uniform updated below
             particleSystem.spawnParticle(options);
-            particleSystem2.spawnParticle(options);
 
         }
     }
     particleSystem.update(tick);
-    particleSystem2.update(tick);
+
     render();
     stats.end();
 
 }
 
+
+
 function render() {
-
-
     cube.rotation.y += (targetRotation - cube.rotation.y) * 0.05;
     renderer.render(scene, camera);
 

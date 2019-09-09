@@ -3,7 +3,9 @@ function loadTextures(){
   panelF = new THREE.TextureLoader().load( "static/js/estufaWebGL/textures/panel2.jpg" );
   panelF.wrapS = THREE.RepeatWrapping;
   panelF.wrapT = THREE.RepeatWrapping;
+  panelF.material
   panelF.repeat.set( 5, 5);
+
 
   panelSmallSide = new THREE.TextureLoader().load( "static/js/estufaWebGL/textures/panel2.jpg" );
   panelSmallSide.wrapS = THREE.RepeatWrapping;
@@ -34,8 +36,6 @@ function loadTextures(){
   silver.wrapS = THREE.RepeatWrapping;
   silver.wrapT = THREE.RepeatWrapping;
   silver.repeat.set( 1,1);
-
-
 
 }
 

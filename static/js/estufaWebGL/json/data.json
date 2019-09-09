@@ -1,0 +1,195 @@
+{
+  "pos01_temp": 18.23,
+  "pos01_humd": 85.00,
+  "pos01_lumy": 1500,
+
+  "pos02_temp": 14.00,
+  "pos02_humd": 85.00,
+  "pos02_lumy": 1500,
+
+  "pos03_co2c": 850,
+
+  "pos04_temp": 18.00,
+  "pos04_humd": 85.00,
+  "pos04_lumy": 1500,
+
+  "pos05_temp": 21.00,
+  "pos05_humd": 85.00,
+  "pos05_lumy": 1500,
+
+  "pos06_temp": 18.00,
+  "pos06_humd": 85.00,
+  "pos06_lumy": 1500,
+
+  "pos07_temp": 18.00,
+  "pos07_humd": 85.00,
+  "pos07_lumy": 1500,
+
+  "pos08_co2c": 850,
+
+  "pos09_temp": 19.00,
+  "pos09_humd": 85.00,
+  "pos09_lumy": 1500,
+
+  "pos10_temp": 18.00,
+  "pos10_humd": 85.00,
+  "pos10_lumy": 1500,
+
+  "pos11_temp": 18.00,
+  "pos11_humd": 85.00,
+  "pos11_lumy": 1500,
+
+  "pos12_temp": 31.00,
+  "pos12_humd": 85.00,
+  "pos12_lumy": 1500,
+
+  "pos13_co2c": 850,
+
+  "pos14_temp": 23.00,
+  "pos14_humd": 85.00,
+  "pos14_lumy": 1500,
+
+  "pos15_temp": 18.00,
+  "pos15_humd": 85.00,
+  "pos15_lumy": 1500,
+
+  "pos16_temp": 18.00,
+  "pos16_humd": 85.00,
+  "pos16_lumy": 1500,
+
+  "pos17_temp": 18.00,
+  "pos17_humd": 85.00,
+  "pos17_lumy": 1500,
+
+  "pos18_temp": 18.00,
+  "pos18_humd": 85.00,
+  "pos18_lumy": 1500,
+
+  "pos19_co2c": 850,
+
+  "pos20_temp": 25.00,
+  "pos20_humd": 85.00,
+  "pos20_lumy": 1500,
+
+  "pos21_temp": 18.00,
+  "pos21_humd": 85.00,
+  "pos21_lumy": 1500,
+
+  "pos22_temp": 24.00,
+  "pos22_humd": 85.00,
+  "pos22_lumy": 1500,
+
+  "pos23_temp": 18.00,
+  "pos23_humd": 85.00,
+  "pos23_lumy": 1500,
+
+  "pos24_temp": 18.00,
+  "pos24_humd": 85.00,
+  "pos24_lumy": 1500,
+
+  "pos25_co2c": 850,
+
+  "pos26_temp": 18.00,
+  "pos26_humd": 85.00,
+  "pos26_lumy": 1500,
+
+  "pos27_temp": 18.00,
+  "pos27_humd": 85.00,
+  "pos27_lumy": 1500,
+
+  "pos28_temp": 18.00,
+  "pos28_humd": 85.00,
+  "pos28_lumy": 1500,
+
+  "pos29_temp": 18.00,
+  "pos29_humd": 85.00,
+  "pos29_lumy": 1500,
+
+  "pos30_temp": 18.00,
+  "pos30_humd": 85.00,
+  "pos30_lumy": 1500,
+
+  "pos31_temp": 18.00,
+  "pos31_humd": 85.00,
+  "pos31_lumy": 1500,
+
+  "pos32_co2c": 850,
+
+  "pos33_temp": 18.00,
+  "pos33_humd": 85.00,
+  "pos33_lumy": 1500,
+
+  "pos34_temp": 18.00,
+  "pos34_humd": 85.00,
+  "pos34_lumy": 1500,
+
+  "pos35_temp": 18.00,
+  "pos35_humd": 85.00,
+  "pos35_lumy": 1500,
+
+  "pos36_temp": 18.00,
+  "pos36_humd": 85.00,
+  "pos36_lumy": 1500,
+
+  "pos37_co2c": 850,
+
+  "pos38_temp": 18.00,
+  "pos38_humd": 85.00,
+  "pos38_lumy": 1500,
+
+  "pos39_temp": 18.00,
+  "pos39_humd": 85.00,
+  "pos39_lumy": 1500,
+
+  "pos40_temp": 18.00,
+  "pos40_humd": 85.00,
+  "pos40_lumy": 1500,
+
+  "pos41_co2c": 850,
+
+  "pos42_temp": 18.00,
+  "pos42_humd": 85.00,
+  "pos42_lumy": 1500,
+
+  "pos43_temp": 18.00,
+  "pos43_humd": 85.00,
+  "pos43_lumy": 1500,
+
+  "pos44_temp": 18.00,
+  "pos44_humd": 85.00,
+  "pos44_lumy": 1500,
+
+  "pos45_temp": 18.00,
+  "pos45_humd": 85.00,
+  "pos45_lumy": 1500,
+
+  "pos46_co2c": 850,
+
+  "pos47_temp": 18.00,
+  "pos47_humd": 85.00,
+  "pos47_lumy": 1500,
+
+  "pos48_temp": 18.00,
+  "pos48_humd": 85.00,
+  "pos48_lumy": 1500,
+
+  "pos49_temp": 18.00,
+  "pos49_humd": 85.00,
+  "pos49_lumy": 1500,
+
+  "pos50_co2c": 850,
+
+  "pos51_temp": 18.00,
+  "pos51_humd": 85.00,
+  "pos51_lumy": 1500,
+
+  "pos52_temp": 18.00,
+  "pos52_humd": 85.00,
+  "pos52_lumy": 1500,
+
+  "lighting": true,
+  "climatisation": true,
+  "misting": false,
+  "access_control": true,
+  "air_circulation": false
+}
