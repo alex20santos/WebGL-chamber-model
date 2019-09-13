@@ -10,6 +10,7 @@ var windowHalfY = window.innerHeight / 2;
 var shelves = [[], [], []];
 var cubeObj = [];
 var acObj = [];
+var misting_obj = [];
 var extractorObj = [];
 var op_cube = 0.9;
 var op_wall = 0.9;
@@ -39,11 +40,17 @@ setInterval(function(){
     try {
         // change state of AC
         if (data_from_db["climatisation"] === true) {
+            console.log('true');
             for (let i = 0; i < acObj.length; i++) {
                 acObj[i].material.color.set(0x00ff00)
             }
         }
         else if (data_from_db["climatisation"] === false) {
+            for (let i = 0; i < acObj.length; i++) {
+                acObj[i].material.color.set(0xff0000)
+            }
+        }
+        else if (data_from_db["climatisation"] === null) {
             for (let i = 0; i < acObj.length; i++) {
                 acObj[i].material.color.set(0xff0000)
             }
@@ -60,15 +67,24 @@ setInterval(function(){
                 extractorObj[i].material.color.set(0xff0000)
             }
         }
+        else if (data_from_db["air_circulation"] === null) {
+            for (let i = 0; i < extractorObj.length; i++) {
+                extractorObj[i].material.color.set(0xff0000)
+            }
+        }
 
         // change state of Misting
         if (data_from_db["misting"] === true) {
-            for (let i = 0; i < extractorObj.length; i++) {
-                misting = true;
-            }
+            misting = true;
+            misting_obj[0].material.color.set(0x00ff00);
+        }
+        else if (data_from_db["misting"] === null) {
+            misting = false;
+            misting_obj[0].material.color.set(0xff0000);
         }
         else {
             misting = false;
+            misting_obj[0].material.color.set(0xff0000);
         }
 
 
@@ -79,21 +95,31 @@ setInterval(function(){
         if(data_from_db["misting"] === false){
             state = "Off";
         }
+        else if(data_from_db["misting"] === null){
+            state = "N/A";
+        }
         else{
             state = "On";
         }
         $('#dt-info-misting').html('Misting: '+ state);
 
+
         if(data_from_db["air_circulation"] === false){
             state = "Off";
+        }
+        else if(data_from_db["air_circulation"] === null){
+            state = "N/A";
         }
         else {
             state = "On";
         }
         $('#dt-info-air-circulation').html('Air circulation: '+state);
 
-        if(data_from_db["air_circulation"] === false){
+        if(data_from_db["access_control"] === false){
             state = "Off";
+        }
+        else if(data_from_db["access_control"] === null){
+            state = "N/A";
         }
         else {
             state = "On";
@@ -103,6 +129,9 @@ setInterval(function(){
         if(data_from_db["lighting"] === false){
             state = "Off";
         }
+        else if(data_from_db["lighting"] === null){
+            state = "N/A";
+        }
         else {
             state = "On";
         }
@@ -110,6 +139,9 @@ setInterval(function(){
 
         if(data_from_db["climatisation"] === false){
             state = "Off";
+        }
+        else if(data_from_db["climatisation"] === null){
+            state = "N/A";
         }
         else {
             state = "On";
@@ -127,7 +159,7 @@ setInterval(function(){
     }
 
 
-}, 2000 ); // change the interval
+}, 200 ); // change the interval
 
 function init() {
     var xmlhttp = new XMLHttpRequest();
@@ -235,6 +267,7 @@ function drawSensors() {
     }
 }
 
+
 function initParticles() {
     particleSystem = new THREE.GPUParticleSystem();
     particleSystem.position.set(0, 250, 0);
@@ -262,7 +295,6 @@ function initParticles() {
     };
 
 }
-
 function drawWalls() {
     //parede meio
     var geometry_obj = new THREE.PlaneGeometry(120, 200, 0);
@@ -414,6 +446,7 @@ function drawCube() {
         }),
         //baixo
         new THREE.MeshBasicMaterial({color: 0x97A4AA, transparent: true, opacity: op_cube, side: THREE.BackSide}),
+
         //lado
         new THREE.MeshBasicMaterial({
             color: 0xffffff,

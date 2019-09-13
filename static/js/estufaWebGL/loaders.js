@@ -3,7 +3,6 @@ function loadTextures(){
   panelF = new THREE.TextureLoader().load( "static/js/estufaWebGL/textures/panel2.jpg" );
   panelF.wrapS = THREE.RepeatWrapping;
   panelF.wrapT = THREE.RepeatWrapping;
-  panelF.material
   panelF.repeat.set( 5, 5);
 
 
@@ -99,6 +98,7 @@ function loadSTLFiles(){
     var mesh = new THREE.Mesh( geometry, material );
 
     mesh.position.set( 2, 250, 0 );
+
     mesh.rotation.set( 0, 0, Math.PI );
     mesh.scale.set( 0.1, 0.1, 0.1 );
 
@@ -106,5 +106,6 @@ function loadSTLFiles(){
     mesh.receiveShadow = true;
 
     scene.add( mesh );
+    misting_obj.push(mesh);
   } );
 }
