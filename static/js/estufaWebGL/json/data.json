@@ -189,7 +189,7 @@
 
   "lighting": true,
   "climatisation": true,
-  "misting": true,
-  "access_control": true,
+  "misting": false,
+  "access_control": false,
   "air_circulation": true
 }

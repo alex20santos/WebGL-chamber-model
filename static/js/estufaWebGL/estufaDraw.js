@@ -25,22 +25,26 @@ var data_from_db;
 var misting = false;
 var spotLight;
 
+var read_interval = 5000; // 5 seconds
+
 loadTextures();
 init();
 animate();
+
+
 
 setInterval(function(){
     $.getJSON("static/js/estufaWebGL/json/data.json", function(json) { // change this path
          data_from_db = json;
     });
-}, 5000 ); //change the interval
+}, read_interval ); //change the interval
 
 
 setInterval(function(){
     try {
         // change state of AC
         if (data_from_db["climatisation"] === true) {
-            console.log('true');
+            //console.log('true');
             for (let i = 0; i < acObj.length; i++) {
                 acObj[i].material.color.set(0x00ff00)
             }
@@ -159,7 +163,7 @@ setInterval(function(){
     }
 
 
-}, 200 ); // change the interval
+}, read_interval ); // change the interval
 
 function init() {
     var xmlhttp = new XMLHttpRequest();
@@ -208,7 +212,7 @@ function init() {
     spotLight.penumbra = 0;
     spotLight.intensity = 2;
     spotLight.angle = 1;
-    spotLight.visible = true;
+    spotLight.visible = false;
 
 
     scene.add(spotLight);
@@ -660,7 +664,7 @@ function onDocumentMouseDown(event) {
 
 
             $('#dt-info-dht-mg11').html(res[0]); // Show sensor name on card -> DHT or MG811
-            console.log(res);
+
             try {
                 if (res[0].includes('DHT')) {
                     $('#dt-info-temp').html("Temperature: " + data_from_db["pos" + sensor_number + "_temp"] + " ºC");
